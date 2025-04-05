@@ -4,6 +4,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -66,6 +67,9 @@ func main() {
 
 	// Input from console
 	usingReaders()
+
+	// Math operations
+	mathOperations()
 }
 
 func printExample() {
@@ -100,4 +104,30 @@ func usingReaders() {
 	} else {
 		fmt.Println(f)
 	}
+}
+
+func mathOperations() {
+	// There is no implicit conversion nin go
+	i1, i2, i3 := 12, 45, 68
+	intSum := i1 + i2 + i3
+	fmt.Println("Iteger sum: ", intSum)
+
+	f1, f2, f3 := 23.5, 45.1, 76.3
+	floatSum := f1 + f2 + f3
+	fmt.Println("Float sum: ", floatSum)
+
+	// For conversion, we have functions
+	total := float64(i1) * f2
+	fmt.Println("total: ", total)
+
+	// Let's start using the Math package
+	floatSum = math.Round(floatSum*100) / 100
+	fmt.Printf("Float sum: %v\n\n", floatSum)
+
+	// the PI constant
+	fmt.Println("The value of PI is: ", math.Pi)
+
+	circleRadius := 15.5
+	circumference := circleRadius * 2 * math.Pi
+	fmt.Printf("circumference: %.2f\n", circumference)
 }
